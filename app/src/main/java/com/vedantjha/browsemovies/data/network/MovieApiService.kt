@@ -7,7 +7,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface ApiInterface {
+interface MovieApiService {
     @GET("now_playing")
     suspend fun fetchMovies(): Response<MovieResponse>
 
