@@ -9,7 +9,10 @@ import retrofit2.http.Query
 
 interface MovieApiService {
     @GET("now_playing")
-    suspend fun fetchMovies(): Response<MovieResponse>
+    suspend fun fetchMovies(
+        @Query("language") language: String = "en-US",
+        @Query("page") page: Int = 1
+    ): Response<MovieResponse>
 
     @GET("{movie_id}")
     suspend fun getMovieDetails(

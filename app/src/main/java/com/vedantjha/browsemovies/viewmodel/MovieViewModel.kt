@@ -38,9 +38,9 @@ class MovieViewModel @Inject constructor(
                     movieRetrofitRepository.fetchMovies()
                 }
                 _moviesLiveData.postValue(newItem.body()?.results)
-                Log.e("new Value", newItem.toString())
+                Log.e("MovieData", " Data: "+ newItem.toString())
             } catch (e: Exception) {
-                Log.e("getDetail", "Error fetching details: ${e.message}")
+                Log.e("MovieData", "Error fetching details: ${e.message}")
             }
         }
     }
