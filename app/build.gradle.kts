@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
+    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
 }
 
@@ -47,7 +47,7 @@ dependencies {
     val materialVersion = "1.4.0"
     val roomVersion = "2.4.0-alpha05"
     val retrofitVersion = "2.9.0"
-    val hiltVersion = "2.44"
+    val hiltVersion = "2.48"
     // testing
     val junitVersion = "4.13.2"
     val espressoVersion = "3.4.0"
@@ -60,12 +60,13 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
 
     // hilt componenets
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    ksp("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    // Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-compiler:2.51.1")
 
     // Room components
     implementation("androidx.room:room-ktx:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
 
     // Lifecycle components
@@ -81,6 +82,8 @@ dependencies {
     // UI
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
     implementation("com.google.android.material:material:$materialVersion")
+    implementation("androidx.activity:activity-ktx:1.3.0")
+    implementation("androidx.fragment:fragment-ktx:1.3.0")
 
     //Retrofit Dependecies.
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
