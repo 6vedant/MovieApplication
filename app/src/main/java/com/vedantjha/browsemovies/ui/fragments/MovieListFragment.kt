@@ -50,7 +50,10 @@ class MovieListFragment: Fragment() {
 //            findNavController().navigate(R.id.action_movieListFragment_to_movieDetailsFragment)
 //        }
         movieListAdapter = MovieListAdapter(MovieItemClickListener {
-            this.findNavController().navigate(R.id.action_movieListFragment_to_movieDetailsFragment)
+            Log.d("MovieData", it.toString())
+            // pass data using NavigationDirections
+            this.findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(it))
+          //  this.findNavController().navigate(R.id.action_movieListFragment_to_movieDetailsFragment)
         })
         binding.movieRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.movieRecyclerView.adapter = movieListAdapter

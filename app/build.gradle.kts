@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
 }
@@ -52,7 +53,7 @@ dependencies {
     val materialVersion = "1.4.0"
     val roomVersion = "2.4.0-alpha05"
     val retrofitVersion = "2.9.0"
-    val nav_version = "2.5.0"
+    val nav_version = "2.7.7"
     val hiltVersion = "2.51.1"
     val glideVersion = "4.12.0"
     // testing

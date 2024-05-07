@@ -22,6 +22,11 @@
         android:label="fragment_details"
         tools:layout="@layout/fragment_movie_details">
 
+        <argument
+            android:name="myArg"
+            app:argType="com.vedantjha.browsemovies.data.model.Movie"
+            android:defaultValue="@null"
+            app:nullable="true"/>
     </fragment>
 
 </navigation>

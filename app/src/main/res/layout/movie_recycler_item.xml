@@ -57,7 +57,7 @@
                     android:layout_marginLeft="8dp"
                     android:maxLines="1"
                     android:layout_marginTop="18dp"
-                    android:text="@{movieItem.original_title}"
+                    android:text="@{movieItem.title}"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
