@@ -53,13 +53,14 @@ dependencies {
     val materialVersion = "1.4.0"
     val roomVersion = "2.4.0-alpha05"
     val retrofitVersion = "2.9.0"
-    val nav_version = "2.7.7"
+    val navVersion = "2.7.7"
     val hiltVersion = "2.51.1"
     val glideVersion = "4.12.0"
+    val pagingVersion = "3.2.1"
     // testing
     val junitVersion = "4.13.2"
     val espressoVersion = "3.4.0"
-    val kotlin_version = "1.9.0"
+    val kotlinVersion = "1.9.0"
 
     // android core components
     implementation("androidx.core:core-ktx:1.9.0")
@@ -82,13 +83,13 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion")
 
     // Kotlin components
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
 
     // Navigation Library
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
     // UI
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
@@ -103,6 +104,9 @@ dependencies {
     // Glide
     implementation("com.github.bumptech.glide:glide:$glideVersion")
     annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
+
+    // Paging
+    implementation("androidx.paging:paging-runtime-ktx:$pagingVersion")
 
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

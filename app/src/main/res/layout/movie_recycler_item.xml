@@ -28,17 +28,17 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_weight="25"
+                android:layout_width="150dp"
+                android:layout_height="180dp"
+                android:layout_weight="35"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="4dp"
                 app:cardElevation="2dp">
 
                 <ImageView
                     android:id="@+id/movieImageView"
-                    android:layout_width="100dp"
-                    android:layout_height="150dp"
+                    android:layout_width="150dp"
+                    android:layout_height="180dp"
                     android:adjustViewBounds="true"
                     app:bindImage='@{"https://image.tmdb.org/t/p/w500"+movieItem.poster_path}' />
             </androidx.cardview.widget.CardView>
@@ -46,7 +46,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="75"
+                android:layout_weight="65"
                 android:orientation="vertical">
 
                 <TextView
@@ -55,8 +55,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:maxLines="1"
                     android:layout_marginTop="18dp"
+                    android:maxLines="1"
                     android:text="@{movieItem.title}"
                     android:textColor="@color/black"
                     android:textSize="17sp"
