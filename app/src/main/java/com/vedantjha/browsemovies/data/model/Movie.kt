@@ -1,5 +1,8 @@
 package com.vedantjha.browsemovies.data.model
 
+import android.os.Parcelable
+
+
 data class Movie(
     val adult: Boolean,
     val backdrop_path: String?,
