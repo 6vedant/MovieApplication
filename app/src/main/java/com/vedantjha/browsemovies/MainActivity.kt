@@ -6,6 +6,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.vedantjha.browsemovies.data.repository.MovieRetrofitRepository
 import com.vedantjha.browsemovies.viewmodel.MovieViewModel
 import com.vedantjha.browsemovies.viewmodel.MovieViewModelFactory
@@ -26,11 +28,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
+
         moviewViewModel.moviesListLiveData.observe(this, Observer {
             Log.d("MovieData", it.toString())
             Toast.makeText(applicationContext, "Updated data: " + it.toString(), Toast.LENGTH_SHORT)
                 .show()
         })
+
+        val navController = findNavController(R.id.fragment)
 
 
     }

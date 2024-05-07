@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -35,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -47,7 +52,8 @@ dependencies {
     val materialVersion = "1.4.0"
     val roomVersion = "2.4.0-alpha05"
     val retrofitVersion = "2.9.0"
-    val hiltVersion = "2.48"
+    val nav_version = "2.5.0"
+    val hiltVersion = "2.51.1"
     // testing
     val junitVersion = "4.13.2"
     val espressoVersion = "3.4.0"
@@ -59,10 +65,9 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
 
-    // hilt componenets
     // Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    kapt("com.google.dagger:hilt-compiler:2.51.1")
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
 
     // Room components
     implementation("androidx.room:room-ktx:$roomVersion")
@@ -78,6 +83,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines")
+
+    // Navigation Library
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
     // UI
     implementation("androidx.constraintlayout:constraintlayout:$constraintLayoutVersion")
