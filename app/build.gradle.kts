@@ -54,6 +54,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val nav_version = "2.5.0"
     val hiltVersion = "2.51.1"
+    val glideVersion = "4.12.0"
     // testing
     val junitVersion = "4.13.2"
     val espressoVersion = "3.4.0"
@@ -97,6 +98,10 @@ dependencies {
     //Retrofit Dependecies.
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
+    annotationProcessor("com.github.bumptech.glide:compiler:$glideVersion")
 
     testImplementation("junit:junit:$junitVersion")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

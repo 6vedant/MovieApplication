@@ -16,12 +16,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    @Inject
-    lateinit var movieRetrofitRepository: MovieRetrofitRepository
 
-    private val moviewViewModel: MovieViewModel by viewModels<MovieViewModel> {
-        MovieViewModelFactory(movieRetrofitRepository)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +24,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        moviewViewModel.moviesListLiveData.observe(this, Observer {
-            Log.d("MovieData", it.toString())
-            Toast.makeText(applicationContext, "Updated data: " + it.toString(), Toast.LENGTH_SHORT)
-                .show()
-        })
+
 
         val navController = findNavController(R.id.fragment)
 
