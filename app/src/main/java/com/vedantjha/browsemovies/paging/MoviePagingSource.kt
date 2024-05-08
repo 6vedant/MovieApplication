@@ -8,8 +8,9 @@ import com.vedantjha.browsemovies.utils.Constant
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.lang.Exception
+import javax.inject.Inject
 
-class MoviePagingSource(private val apiService: MovieApiService) : PagingSource<Int, Movie>() {
+class MoviePagingSource (private val apiService: MovieApiService) : PagingSource<Int, Movie>() {
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
         return state.anchorPosition?.let {
             state.closestPageToPosition(it)?.prevKey?.plus(1)
