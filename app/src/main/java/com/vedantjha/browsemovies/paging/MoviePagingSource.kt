@@ -5,6 +5,8 @@ import androidx.paging.PagingState
 import com.vedantjha.browsemovies.data.model.Movie
 import com.vedantjha.browsemovies.data.network.MovieApiService
 import com.vedantjha.browsemovies.utils.Constant
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 class MoviePagingSource(private val apiService: MovieApiService) : PagingSource<Int, Movie>() {
@@ -18,11 +20,13 @@ class MoviePagingSource(private val apiService: MovieApiService) : PagingSource<
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
         return try {
             val position = params.key ?: 1
-            val response = apiService.fetchMovies(
-                api_key = Constant.ACCESS_TOKEN,
-                language = "en-US",
-                page = position
-            )
+            val response = withContext(Dispatchers.IO){
+                apiService.fetchMovies(
+                    api_key = Constant.ACCESS_TOKEN,
+                    language = "en-US",
+                    page = position
+                )
+            }
             if (response.isSuccessful && response.body() != null) {
                 LoadResult.Page(
                     data = response.body()!!.results,

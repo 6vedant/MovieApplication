@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.vedantjha.browsemovies.data.model.Movie
-import com.vedantjha.browsemovies.data.model.MovieDetails
 import com.vedantjha.browsemovies.data.repository.MovieRetrofitRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,12 +19,6 @@ class MovieViewModel @Inject constructor(
     private val movieRetrofitRepository: MovieRetrofitRepository
 ) : ViewModel() {
     private val _moviesLiveData = MutableLiveData<List<Movie>>()
-    val moviesListLiveData: LiveData<List<Movie>>
-        get() = _moviesLiveData
-
-    private val _movieDetailsLiveData = MutableLiveData<MovieDetails>()
-    val movieDetailsLiveData: LiveData<MovieDetails>
-        get() = _movieDetailsLiveData
 
     init {
         fetchMovies()
@@ -45,18 +38,7 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    private fun fetchMovieDetails(movieId: String) {
-        viewModelScope.launch {
-            try {
-                val newItem = withContext(Dispatchers.IO) {
-                    movieRetrofitRepository.fetchMovieDetails(movieId)
-                }
-                _movieDetailsLiveData.postValue(newItem.body())
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
-    }
+
 }
 
 class MovieViewModelFactory(private val repository: MovieRetrofitRepository) : ViewModelProvider.Factory {

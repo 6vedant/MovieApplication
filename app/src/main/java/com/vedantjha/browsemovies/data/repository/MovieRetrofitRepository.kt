@@ -15,9 +15,7 @@ class MovieRetrofitRepository @Inject constructor(
 ) {
     suspend fun fetchMovies() = apiService.fetchMovies()
 
-    suspend fun fetchMovieDetails(movieId: String) = apiService.getMovieDetails(movieId)
-
-    fun getMoviePageData(): LiveData<PagingData<Movie>> = Pager(
+     fun getMoviePageData(): LiveData<PagingData<Movie>> = Pager(
         config = PagingConfig(pageSize = 10, maxSize = 200),
         pagingSourceFactory = {MoviePagingSource(apiService)}
     ).liveData
